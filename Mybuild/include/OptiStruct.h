@@ -10,7 +10,7 @@ struct Bit
         bfalse,
         btrue
     };
-    Bit(BooleanKeyword em);
+    Bit(BooleanKeyword em) : BitBool(em) { };
 };
 
 // I dont want to use Heap! >:| | P -> Pointer.
@@ -23,10 +23,6 @@ struct PArray
     int   m_0maxsize = 0, m_1maxsize = 0; // 1D|2D
     char* m_1arr = 0;  char** m_2arr = 0; // 1D|2D    // m_0arr would be just an char, we dont want that.
     // void* because i use int and int8_t.
-    PArray(void* maxsize) : m_1maxsize(0), m_2arr(0)
-    {
-        m_0maxsize = *(int*)maxsize;
-        m_1arr = {}; m_2arr = {};
-    }
+    PArray(void* maxsize);
     void LinkPtr(void** a, void* b) { a = &b; } //m_1arr = &m_0arr; 
 };
